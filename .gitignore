@@ -1,0 +1,22 @@
+# Learning scripts
+sandbox/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Build output
+build/
+dist/
+
+# Tools
+.pytest_cache/
+.ruff_cache/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
