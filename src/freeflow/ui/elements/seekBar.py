@@ -5,7 +5,6 @@ class SeekBar(QSlider):
     userSeeked = Signal(int)
     def __init__(self, orientation=Qt.Orientation.Horizontal, parent=None):
         super().__init__(orientation, parent)
-        self.setRange(0, 1000)
         self.slider_pressed = False
         self.sliderPressed.connect(self._on_pressed)
         self.sliderPressed.connect(self._on_released)
@@ -13,8 +12,9 @@ class SeekBar(QSlider):
         self.setStyleSheet(
             """
             QSlider:horizontal {
-                margin-left: 70px;
-                margin-right: 20px;
+                margin-left: 10px;
+                margin-right: 10px;
+                margin-bottom: 10px;
                 min-height: 20px;
             }
 
@@ -61,4 +61,3 @@ class SeekBar(QSlider):
             
             event.accept()
         super().mousePressEvent(event)
-        
