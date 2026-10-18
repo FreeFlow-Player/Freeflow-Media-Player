@@ -1,5 +1,4 @@
 # FreeFlow Media Player
-[![Repo Stats](https://github-stats-extended.vercel.app)](https://github.com/FreeFlow-Player/Freeflow-Media-Player)
 
 FreeFlow is an open-source media player, licensed under the GNU GPL v3. Our aim is to give you a player that adapts to you, rather than the other way around. From the interface to the way playback behaves, FreeFlow is built to be customised, so you can shape it around how you actually watch and listen instead of settling for someone else's defaults.
 
