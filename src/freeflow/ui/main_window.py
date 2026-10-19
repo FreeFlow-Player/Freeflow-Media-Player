@@ -44,39 +44,41 @@ class MainWindow(QMainWindow):
         self.playpauseButton = QPushButton()
         self.playpauseButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.playpauseButton.setText("▐▐")
-        self.playpauseButton.setFixedSize(48, 48)
+        self.playpauseButton.setFixedSize(35, 35)
         self.playpauseButton.clicked.connect(self._play_pause)
-        self.playpauseButton.setStyleSheet("margin-bottom: 10px;")
+        self.playpauseButton.setStyleSheet("margin-bottom: 2px;")
 
         self.skipforwardButton = QPushButton()
         self.skipforwardButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.skipforwardButton.setText(">>")
-        self.skipforwardButton.setFixedSize(48, 48)
+        self.skipforwardButton.setFixedSize(35, 35)
         self.skipforwardButton.clicked.connect(self._skip_forward)
-        self.skipforwardButton.setStyleSheet("margin-bottom: 10px;")
+        self.skipforwardButton.setStyleSheet("margin-bottom: 2px;")
 
         self.skipbackButton = QPushButton()
         self.skipbackButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.skipbackButton.setText("<<")
-        self.skipbackButton.setFixedSize(48, 48)
+        self.skipbackButton.setFixedSize(35, 37)
         self.skipbackButton.clicked.connect(self._skip_backwards)
-        self.skipbackButton.setStyleSheet("margin-bottom: 10px; margin-left: 10px;")
+        self.skipbackButton.setStyleSheet("margin-bottom: 2px; margin-left: 2px;")
 
         self.fullscreenButton = QPushButton()
         self.fullscreenButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.fullscreenButton.setText("⎡ ⎦")
-        self.fullscreenButton.setFixedSize(48, 48)
+        self.fullscreenButton.setFixedSize(35, 35)
         self.fullscreenButton.clicked.connect(self._fullscreen_mode)
-        self.fullscreenButton.setStyleSheet("margin-bottom: 10px;")
+        self.fullscreenButton.setStyleSheet("margin-bottom: 2px;")
     
         self.ccButton = QPushButton()
         self.ccButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.ccButton.setText("CC")
-        self.ccButton.setFixedSize(48, 48)
+        self.ccButton.setFixedSize(35, 35)
         self.ccButton.clicked.connect(self._toggle_subtitles)
-        self.ccButton.setStyleSheet("margin-bottom: 10px;")
+        self.ccButton.setStyleSheet("margin-bottom: 2px;")
 
-        self.settingsButton = QPushButton("⚙")
+        self.settingsButton = QPushButton()
+        self.settingsButton.setStyleSheet("margin-bottom: 2px; margin-left: 2px;")
+        self.settingsButton.setFixedSize(24, 35)
         self.settingsMenu = QMenu()
         self.playbackSpeedSub = self.settingsMenu.addMenu("Playback Speed")
         
@@ -117,7 +119,7 @@ class MainWindow(QMainWindow):
         self.volSlider.valueChanged.connect(self._update_volume)
         self.volSlider.setStyleSheet("""
             QSlider:horizontal {
-                min-height: 10px;
+                min-height: 20px;
             }
 
             QSlider::groove:horizontal {
