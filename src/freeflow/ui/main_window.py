@@ -2,12 +2,21 @@ import sys
 import subprocess
 from pathlib import Path
 from PySide6 import QtCore, QtWidgets, QtGui
-from PySide6.QtCore import QUrl, Qt, QVariantAnimation, QEasingCurve, QSize, QStandardPaths, QTimer, QEvent
+from PySide6.QtCore import QUrl, Qt, QVariantAnimation, QEasingCurve, QSize, QStandardPaths, QTimer, QEvent, QSize
 from PySide6.QtGui import QGuiApplication, QIcon, QAction, QKeySequence, QShortcut, QActionGroup
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QSpacerItem, QSizePolicy, QProgressBar, QLabel, QPushButton, QFileDialog, QSlider, QMenu
 from PySide6.QtMultimedia import QMediaPlayer, QAudioOutput, QMediaFormat, QAudio
 from PySide6.QtMultimediaWidgets import QVideoWidget
 from .elements import SeekBar
+
+rootPath = Path(__file__).resolve().parent.parent
+staticPath = rootPath / "static"
+skipB_icon = staticPath / "skip-b.svg"
+skipF_icon = staticPath / "skip-f.svg"
+pause_icon = staticPath / "pause.svg"
+play_icon = staticPath / "play.svg"
+cc_icon = staticPath / "cc.svg"
+flscrn_icon = staticPath / "fullscreen.svg"
 
 from ..core import config
 
@@ -44,35 +53,40 @@ class MainWindow(QMainWindow):
 
         self.playpauseButton = QPushButton()
         self.playpauseButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.playpauseButton.setText("▐▐")
+        self.playpauseButton.setIcon(QIcon(str(pause_icon)))
+        self.playpauseButton.setIconSize(QSize(20, 20))
         self.playpauseButton.setFixedSize(35, 35)
         self.playpauseButton.clicked.connect(self._play_pause)
         self.playpauseButton.setStyleSheet("margin-bottom: 2px;")
 
         self.skipforwardButton = QPushButton()
         self.skipforwardButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.skipforwardButton.setText(">>")
+        self.skipforwardButton.setIcon(QIcon(str(skipF_icon)))
+        self.skipforwardButton.setIconSize(QSize(24, 24))
         self.skipforwardButton.setFixedSize(35, 35)
         self.skipforwardButton.clicked.connect(self._skip_forward)
         self.skipforwardButton.setStyleSheet("margin-bottom: 2px;")
 
         self.skipbackButton = QPushButton()
         self.skipbackButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.skipbackButton.setText("<<")
+        self.skipbackButton.setIcon(QIcon(str(skipB_icon)))
+        self.skipbackButton.setIconSize(QSize(24, 24))
         self.skipbackButton.setFixedSize(35, 37)
         self.skipbackButton.clicked.connect(self._skip_backwards)
         self.skipbackButton.setStyleSheet("margin-bottom: 2px; margin-left: 2px;")
 
         self.fullscreenButton = QPushButton()
         self.fullscreenButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.fullscreenButton.setText("⎡ ⎦")
+        self.fullscreenButton.setIcon(QIcon(str(flscrn_icon)))
+        self.fullscreenButton.setIconSize(QSize(24, 24))
         self.fullscreenButton.setFixedSize(35, 35)
         self.fullscreenButton.clicked.connect(self._fullscreen_mode)
         self.fullscreenButton.setStyleSheet("margin-bottom: 2px;")
     
         self.ccButton = QPushButton()
         self.ccButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.ccButton.setText("CC")
+        self.ccButton.setIcon(QIcon(str(cc_icon)))
+        self.ccButton.setIconSize(QSize(24, 24))
         self.ccButton.setFixedSize(35, 35)
         self.ccButton.clicked.connect(self._toggle_subtitles)
         self.ccButton.setStyleSheet("margin-bottom: 2px;")
@@ -254,10 +268,10 @@ class MainWindow(QMainWindow):
     def _play_pause(self):
         if self.player.isPlaying():
             self.player.pause()
-            self.playpauseButton.setText("▶")
+            self.playpauseButton.setIcon(QIcon(str(play_icon)))
         else:
             self.player.play()
-            self.playpauseButton.setText("▐▐")
+            self.playpauseButton.setIcon(QIcon(str(pause_icon)))
 
     def _createMenuBar(self):
         menu_bar = self.menuBar()
