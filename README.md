@@ -18,6 +18,8 @@ More are on the way. See the [roadmap](#roadmap).
 
 ## Screenshots
 
+Following links a broken.
+
 ![FreeFlow playing a video](docs/images/screenshot-main.png)
 
 ## Usage
@@ -112,7 +114,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 - **Linux:** Qt needs a few system libraries for its window and audio support. If the app fails to start with a message about the `xcb` platform plugin, install `libxcb-cursor0` (Debian/Ubuntu) or your distribution's equivalent.
 - **No sound or video for a particular file:** run `FFMPEG_LOG=1`-style debugging only if you know the codec; otherwise open an issue and include the file's format.
 
+## Supporting devlopment
 
+We currently **do not** accept donations, however if you would like to support the development of FreeFlow and are unable to contribute, please consider [joining our discord server](https://discord.gg/amWCH8Gyqt). It is free and would mean the world to use. See [DISCORD.md](DISCORD.md) for more information.
 
 ## Licence
 

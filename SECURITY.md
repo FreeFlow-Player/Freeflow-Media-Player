@@ -4,10 +4,10 @@
 
 FreeFlow is in early development. Security fixes are provided for the latest release only, so please update to the newest version before reporting an issue.
 
-| Version        | Supported          |
-| -------------- | ------------------ |
-| Latest release | ✓ |
-| Older releases | ✕ |
+| Version        | Supported |
+| -------------- | ----------|
+| Latest release | ✓         |
+| Older releases | ✕         |
 
 ## Reporting a vulnerability
 

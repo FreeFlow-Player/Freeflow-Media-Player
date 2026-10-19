@@ -93,6 +93,6 @@ FreeFlow targets Windows, Linux and macOS. If your change touches playback, wind
 
 ## Questions
 
-Not sure where to start, or unsure whether an idea fits? Open a discussion or an issue. No question is too small.
+Not sure where to start, or unsure whether an idea fits? Open a discussion/issue or [join our discord server](https://discord.gg/amWCH8Gyqt). No question is too small.
 
 Thank you for helping make FreeFlow better!
