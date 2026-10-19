@@ -9,7 +9,7 @@ from PySide6.QtMultimedia import QMediaPlayer, QAudioOutput, QMediaFormat, QAudi
 from PySide6.QtMultimediaWidgets import QVideoWidget
 from .elements import SeekBar
 
-root_path = Path(__file__).parent.parent
+from ..core import config
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -21,7 +21,8 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(container)
 
         self.fullscreen = False
-        
+        self.accentColor = config.accentColor
+
         self.player = QMediaPlayer()
         self.audioOutput = QAudioOutput()
         self.player.setAudioOutput(self.audioOutput)
@@ -117,28 +118,26 @@ class MainWindow(QMainWindow):
         self.volSlider.setRange(0, 100)
         self.volSlider.setValue(100)
         self.volSlider.valueChanged.connect(self._update_volume)
-        self.volSlider.setStyleSheet("""
-            QSlider:horizontal {
+        self.volSlider.setStyleSheet(f"""
+            QSlider:horizontal {{
                 min-height: 20px;
-            }
+            }}
 
-            QSlider::groove:horizontal {
+            QSlider::groove:horizontal {{
                 height: 15px; 
                 border: 1px solid #CCCCCC;
                 border-radius: 4px;
-                background-color: #E0E0E0;
-            }
+            }}
 
-            QSlider::sub-page:horizontal {
-                background-color: #0078D4; 
-                border: 1px solid #0078D4;
+            QSlider::sub-page:horizontal {{
+                background-color: {self.accentColor}; 
+                border: 1px solid {self.accentColor};
                 border-radius: 3px;
-            }
+            }}
 
-            QSlider::add-page:horizontal {
-                background-color: #E0E0E0;
+            QSlider::add-page:horizontal {{
                 border-radius: 3px;
-            }
+            }}
         """)
 
         self.is_dragging = False
@@ -380,7 +379,7 @@ class MainWindow(QMainWindow):
         if next_track == -1:
             self.ccButton.setStyleSheet("margin-bottom: 10px;")
         else:
-            self.ccButton.setStyleSheet("margin-bottom: 10px; background-color: #0078D4; color: white;")
+            self.ccButton.setStyleSheet(f"margin-bottom: 10px; background-color: {self.accentColor}; color: white;")
 
     def _playback_rate(self, pr):
         if pr == 'es':

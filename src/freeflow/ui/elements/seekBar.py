@@ -1,6 +1,8 @@
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtWidgets import QSlider, QStyleOptionSlider, QStyle
 
+from ...core import config
+
 class SeekBar(QSlider):
     userSeeked = Signal(int)
     def __init__(self, orientation=Qt.Orientation.Horizontal, parent=None):
@@ -10,31 +12,31 @@ class SeekBar(QSlider):
         self.sliderPressed.connect(self._on_released)
 
         self.setStyleSheet(
-            """
-            QSlider:horizontal {
+            f"""
+            QSlider:horizontal {{
                 margin-left: 10px;
                 margin-right: 10px;
                 margin-bottom: 10px;
                 min-height: 20px;
-            }
+            }}
 
-            QSlider::groove:horizontal {
+            QSlider::groove:horizontal {{
                 height: 15px; 
                 border: 1px solid #CCCCCC;
                 border-radius: 4px;
                 background-color: #E0E0E0;
-            }
+            }}
 
-            QSlider::sub-page:horizontal {
-                background-color: #0078D4; 
-                border: 1px solid #0078D4;
+            QSlider::sub-page:horizontal {{
+                background-color: {config.accentColor}; 
+                border: 1px solid {config.accentColor};
                 border-radius: 3px;
-            }
+            }}
 
-            QSlider::add-page:horizontal {
+            QSlider::add-page:horizontal {{
                 background-color: #E0E0E0;
                 border-radius: 3px;
-            }
+            }}
         """
         )
 
