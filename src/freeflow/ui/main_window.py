@@ -319,7 +319,7 @@ class MainWindow(QMainWindow):
             video_path = selFiles[0]
             self.player.setSource(QtCore.QUrl.fromLocalFile(video_path))
             self.player.play()
-            self.playpauseButton.setText("▐▐")
+            self.playpauseButton.setIcon(QIcon(str(pause_icon)))
             winTitle = f"{Path(video_path).stem} - {video_path} - Freeflow Media Player"
             self.setWindowTitle(winTitle)
 
