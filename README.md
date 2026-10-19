@@ -18,7 +18,7 @@ More are on the way. See the [roadmap](#roadmap).
 
 ## Screenshots
 
-Following links a broken.
+Following links are broken - Will be fixed soon.
 
 ![FreeFlow playing a video](docs/images/screenshot-main.png)
 
